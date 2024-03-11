@@ -12,4 +12,6 @@ In this study, we propose BCtypeFinder, a breast cancer subtype prediction frame
 Clone the repository or download source code files.
 
 ## Inputs
-[Note!] All these inputs should be located in the cloned repository.
+[Note!] All the example datasets can be found in './dataset/' directory.
+
+1. source
