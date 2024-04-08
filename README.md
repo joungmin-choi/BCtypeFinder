@@ -14,4 +14,41 @@ Clone the repository or download source code files.
 ## Inputs
 [Note!] All the example datasets can be found in './dataset/' directory.
 
-1. source
+### 1. Source dataset
+* Source_X
+  - Contains the methylation profiles for the source dataset
+  - Row : Sample, Column : Feature (CpG)
+  - The first column should be the "sample_id" and the first row should contain the feature names.
+  - Example : ./dataset/source_X.csv
+* Source_Y
+  - Contains the integer-converted subtype information for the source dataset
+  - The first row should contain the "sample_id" and "subtype" column names. The sample_id should be sorted in the same way as the ones in **Source_X**.
+  - Example : ./dataset/source_Y.csv
+
+### 2. Target dataset
+* Target_X
+   - Contains the methylation profiles for the labeled dataset
+   - Row : Sample, Column : Feature (CpG)
+   - The first column should be the "sample_id" and the last coulmn shoud be "domain_idx" which contains the integer number (index) discriminating each dataset. Samples in the same dataset should have same number.
+   - The first row should contain the feature names.
+   - Example : ./dataset/target_X.csv
+
+### 3. Test dataset
+* Contains the testing dataset to evaluate BCtypeFinder
+* The first column should be the "sample_id" and the last coulmn shoud be "subtype" which contains the integer-converted subtype label for each sample.
+* The first row should contain the feature names.
+* Example : ./dataset/target_test.csv
+
+## How to run
+1. Edit the **run_BCtypeFinder.sh** to make sure each variable indicate the corresponding source, target and test dataset files as input.
+2. Run the below command :
+```
+chmod +x run_BCtypeFinder.sh
+./run_BCtypeFinder.sh
+```
+3. All the results will be saved in the newly created **results** directory.
+   * ft_test_target_pred.csv : predicted subtype label for testing dataset
+   * ft_test_target_label.csv : actual subtype label of testing dataset you provided for evaluation
+
+## Contact
+If you have any questions or problems, please contact to **joungmin AT vt.edu**.
